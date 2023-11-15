@@ -10,32 +10,36 @@
 </head>
 
 <body>
-    <div class="ms_container-app">
-        <h1 class="text-center fw-bolder py-4">To Do List</h1>
-        <hr class="ms_line col-6">
-        <div class="py-4 col-6 m-auto">
-            <label for="todoList" class="form-label fs-4">
-                Write new task
-            </label>
-            <input type="text" class="form-control" id="todoList" placeholder="For Example: Go to Barber">
-            <button class="btn btn-primary mt-4">
-                Add
-            </button>
-        </div>
-        <hr class="ms_line col-6">
-        <div class="card col-6 m-auto mt-4">
-            <div class="card-header fw-bolder fs-5">
-              List:
+    <div id="app">
+        <div class="ms_container-app">
+            <h1 class="text-center fw-bolder py-4">To Do List</h1>
+            <hr class="ms_line col-6">
+            <div class="py-4 col-6 m-auto">
+                <label for="newTask" class="form-label fs-4">
+                    Write new task
+                </label>
+                <input type="text" class="form-control" id="newTask" placeholder="For Example: Go to Barber" v-model="newTask.text">
+                <button class="btn btn-primary mt-4" @click="addTask">
+                    Add
+                </button>
             </div>
-            <ul class="list-group list-group-flush">
-                <li class="list-group-item d-flex justify-content-between align-items-center">
-                    Comprare la verdura
-                    <button class="ms_button">
-                        <i class="fa-solid fa-xmark"></i>
-                    </button>
-                </li>
-            </ul>
-          </div>
+    
+            <hr class="ms_line col-6">
+    
+            <div class="card col-6 m-auto mt-4">
+                <div class="card-header fw-bolder fs-5">
+                  List:
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item d-flex justify-content-between align-items-center" v-for="(task, index) in todoList" :key="index">
+                        {{ task.text }}
+                        <button class="ms_button" @click="deleteTask(clickedIndex)">
+                            <i class="fa-solid fa-xmark"></i>
+                        </button>
+                    </li>
+                </ul>
+              </div>
+        </div>
     </div>
     
     <script src='https://unpkg.com/vue@3/dist/vue.global.js'></script>
