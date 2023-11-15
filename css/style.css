@@ -1,0 +1,15 @@
+.ms_container-app{
+    width: 100%;
+    height: 100vh;
+}
+
+.ms_line{
+    margin: auto;
+    border: 1px solid rgba(0, 0, 0, 1);
+}
+
+.ms_button{
+    background-color: transparent;
+    border: transparent;
+    color: red;
+}
