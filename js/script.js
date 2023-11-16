@@ -22,7 +22,7 @@ createApp({
         },
         deleteTask: function(clickedIndex) {
             console.log("Elimina");
-            this.todoList.slice(clickedIndex, 1);
+            this.todoList.splice(clickedIndex, 1);
         },
     },
 }).mount("#app");
